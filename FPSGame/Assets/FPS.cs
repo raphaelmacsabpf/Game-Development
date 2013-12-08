@@ -10,6 +10,6 @@ public class FPS : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		guiText.text = "FPS: "+ 1.0f/Time.deltaTime;
+		guiText.text = "FPS: "+ (int)(1.0f/Time.deltaTime);
 	}
 }

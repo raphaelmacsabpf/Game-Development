@@ -7,10 +7,9 @@ public class GameControls : MonoBehaviour
 	public float offset;
 	
 	void Update() {
-		if(Input.GetKey(KeyCode.Return))
+		if(Input.GetMouseButtonDown(0))
 		{
 			Transform t = (Transform) Instantiate(brick, transform.position, transform.rotation);
-			t.renderer.material.color = new Color(Random.value * 5,Random.value * 5, Random.value * 5);
 		}
 	}
 }
