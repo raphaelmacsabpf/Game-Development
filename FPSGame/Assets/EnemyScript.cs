@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour {
 
 	// Use this for initialization
-	public  GameObject enemyId;
+	public  GameObject bodyId;
 	void Start () {
 	
 	}

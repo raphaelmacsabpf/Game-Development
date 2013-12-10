@@ -30,7 +30,12 @@ public class BulletScript : MonoBehaviour {
 		if(collision.transform.parent != null)
 		{
 			if(collision.transform.parent.gameObject.tag == "Enemy")
-				DestroyObject(collision.transform.parent.gameObject);
+			{ 
+				GameObject d = collision.transform.GetComponentInChildren<EnemyScript>().bodyId;
+				d.rigidbody.constraints = RigidbodyConstraints.None;
+				d.rigidbody.AddForce(new Vector3(Random.value* 100,Random.value* 100,Random.value* 100));
+			}
+				//DestroyObject(collision.transform.parent.gameObject);
 		}
 		if(collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Player")
 		{
