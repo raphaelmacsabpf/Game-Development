@@ -15,6 +15,7 @@ public class GameControls : MonoBehaviour
 	void Update() {
 		if(Input.GetMouseButtonDown(0))
 		{
+			//transform.parent.parent.camera.fieldOfView -= 5;
 			audio.PlayOneShot(fireSound);
 			Instantiate(bullet, transform.position,transform.rotation);
 			Instantiate(realBullet, transform.position,transform.rotation);

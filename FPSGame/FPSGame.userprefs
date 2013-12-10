@@ -1,13 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameControls.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Temp\Compiled-Normal-Diffuse.shader">
     <Files>
       <File FileName="Assets\EnemyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\BulletScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\GameControls.cs" Line="1" Column="1" />
+      <File FileName="Assets\GameControls.cs" Line="18" Column="31" />
       <File FileName="Assets\FPS.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="1" Column="1" />
+      <File FileName="Assets\BulletScript.cs" Line="1" Column="1" />
+      <File FileName="Temp\Compiled-Normal-Diffuse.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
