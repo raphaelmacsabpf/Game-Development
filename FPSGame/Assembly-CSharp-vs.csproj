@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BulletScript.cs" />
+     <Compile Include="Assets\EnemyScript.cs" />
      <Compile Include="Assets\FPS.cs" />
      <Compile Include="Assets\GameControls.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />

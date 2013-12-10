@@ -1,28 +1,41 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;using System.Collections;
 
 public class BulletScript : MonoBehaviour {
 
 	// Use this for initialization
 	float velocidade;
+	float timeOfLife;
 	void Start () {
-		velocidade = 277 * Time.deltaTime;
-		renderer.material.color = new Color(Random.value * 5,Random.value * 5, Random.value * 5);
+		timeOfLife = 0.0f;
+		renderer.material.color = new Color(0,0,0);
 	}
 	
-	// Update is called once per frame
+	// Update is called once per framem
 	void Update () {
+		timeOfLife += Time.deltaTime;
+		velocidade = 277*Time.deltaTime;
 		transform.Translate(new Vector3(0,0,velocidade));
-		/*if(transform.position.y > 2000 || transform.position.x > 2000 || transform.position.z > 2000 || transform.position.y < -2000 || transform.position.x < -2000 || transform.position.z < -2000)
-			DestroyObject(gameObject);*/
+		if(transform.position.y > 2000 || transform.position.x > 2000 || transform.position.z > 2000 || transform.position.y < -2000 || transform.position.x < -2000 || transform.position.z < -2000)
+			DestroyBullet();
 	
 	}
-	void OnCollisionEnter(Collision collision)
+	void DestroyBullet()
 	{
-		if(collision.gameObject.tag != "Bullet")
+		print ("Tempo de vida: " + timeOfLife);
+		DestroyObject(gameObject);
+
+	}
+	void OnTriggerEnter(Collider collision)
+	{
+		if(collision.transform.parent != null)
 		{
-			print ("Nome" + collision.gameObject.name);
-			DestroyObject(gameObject);
+			if(collision.transform.parent.gameObject.tag == "Enemy")
+				DestroyObject(collision.transform.parent.gameObject);
 		}
+		if(collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Player")
+		{
+			DestroyBullet();
+		}
+
 	}
 }
