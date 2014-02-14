@@ -11,7 +11,6 @@ public class AIController : MonoBehaviour {
 		isMoving = false;
 		newPos = Vector3.zero;
 		choice = 0;
-
 	}
 	void MoveTo(Vector3 newPosition)
 	{
@@ -20,9 +19,12 @@ public class AIController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		print (StaticsOfGame.mainPlayer.position.ToString ());
+		MoveTo (StaticsOfGame.mainPlayer.transform.position);
+		/*
 		choice ++;
 		if(choice % 600 == 0)
-			MoveTo (StaticsOfGame.mainPlayer.transform.position);
+			MoveTo (StaticsOfGame.mainPlayer.transform.position);*/
 		if(isMoving)
 		{
 			this.transform.Translate(Vector3.Normalize(newPos-this.transform.position) * 6 * Time.deltaTime);

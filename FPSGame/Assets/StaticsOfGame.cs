@@ -6,7 +6,7 @@ public class StaticsOfGame : MonoBehaviour {
 	public Transform nonStaticMainPlayer;
 	public static Transform mainPlayer;
 	// Use this for initialization
-	void Start () {
+	public  StaticsOfGame() {
 		StaticsOfGame.mainPlayer = nonStaticMainPlayer;
 	}
 	

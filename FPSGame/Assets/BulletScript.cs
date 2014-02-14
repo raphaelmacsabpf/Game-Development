@@ -1,4 +1,4 @@
-﻿using UnityEngine;using System.Collections;
+using UnityEngine;using System.Collections;
 
 public class BulletScript : MonoBehaviour {
 
@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour {
 	// Update is called once per framem
 	void Update () {
 		timeOfLife += Time.deltaTime;
-		velocidade = 150*Time.deltaTime;
+		velocidade = 177*Time.deltaTime;
 		transform.Translate(new Vector3(0,0,velocidade));
 		if(transform.position.y > 2000 || transform.position.x > 2000 || transform.position.z > 2000 || transform.position.y < -2000 || transform.position.x < -2000 || transform.position.z < -2000)
 			DestroyBullet();
@@ -21,26 +21,25 @@ public class BulletScript : MonoBehaviour {
 	}
 	void DestroyBullet()
 	{
-		print ("Tempo de vida: " + timeOfLife);
+		//print ("Tempo de vida: " + timeOfLife);
 		DestroyObject(gameObject);
 
 	}
 	void OnTriggerEnter(Collider collision)
 	{
-		if(collision.transform.parent != null)
+		if(this.tag == "RealBullet" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "RealBullet"&& collision.gameObject.tag != "Player")
 		{
-			if(collision.transform.parent.gameObject.tag == "Enemy")
-			{ 
-				GameObject d = collision.transform.GetComponentInChildren<EnemyScript>().bodyId;
-				d.rigidbody.constraints = RigidbodyConstraints.None;
-				//d.rigidbody.AddForce (StaticsOfGame.mainPlayer.transform.forward * 300);
-				d.rigidbody.AddForce( (this.transform.position -StaticsOfGame.mainPlayer.transform.position) * 10 );
-				//d.rigidbody.AddForce(new Vector3(Random.value* 100,1000,Random.value* 100));
+			if(collision.gameObject.tag == "Enemy")
+			{
+				MonsterController gt = collision.gameObject.GetComponent<MonsterController>();
+				gt.toMove = true;
+				gt.health -= 11.0f;
+				if (gt.health <= 0.0f)
+				{
+					gt.Death();
+
+				}
 			}
-				//DestroyObject(collision.transform.parent.gameObject);
-		}
-		if(collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Player")
-		{
 			DestroyBullet();
 		}
 
